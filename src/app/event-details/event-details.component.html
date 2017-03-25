@@ -1,6 +1,15 @@
-{{event.title}}<br />
-{{event.descriere}}<br />
-{{event.author}} <br />
-{{event.rating}} <br />
-{{event.date}} <br />
-{{event.location}} <br />
+<md-card>
+  <md-card-title>{{ event.title }}</md-card-title>
+  <md-card-subtitle>Autor: {{ event.author }}</md-card-subtitle>
+  <md-card-content>
+    {{ event.descriere }}
+    <img class="main-img" [src]="event.image" alt="{{event.title}}" />
+  </md-card-content>
+  <md-card-footer>
+    <md-list>
+      <md-list-item> Location: {{ event.locatie }} </md-list-item>
+      <md-list-item> Date: {{ event.date }} </md-list-item>
+      <md-list-item> Rating: {{ event.rating }} </md-list-item>
+    </md-list>
+  </md-card-footer>
+</md-card>
