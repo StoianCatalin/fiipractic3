@@ -1,0 +1,37 @@
+<form #form="ngForm">
+  <md-input-container>
+    <label>Title</label>
+    <input #title="ngModel" [(ngModel)]="event.title" mdInput required type="text" name="title" />
+    <div *ngIf="!title.valid">
+      Can't be empty.
+    </div>
+  </md-input-container>
+  <md-input-container>
+    <label>Descriere</label>
+    <input [(ngModel)]="event.descriere" mdInput required type="text" name="descriere" />
+  </md-input-container>
+  <md-input-container>
+    <label>Author</label>
+    <input [(ngModel)]="event.author" mdInput type="text" name="author" />
+  </md-input-container>
+  <md-input-container>
+    <label>Image</label>
+    <input [(ngModel)]="event.image" mdInput type="text" name="image" />
+  </md-input-container>
+  <md-input-container>
+    <label>Rating</label>
+    <input [(ngModel)]="event.rating" mdInput type="number" name="rating" />
+  </md-input-container>
+  <md-input-container>
+    <label>Date</label>
+    <input [(ngModel)]="event.date" mdInput type="text" name="date" />
+  </md-input-container>
+  <md-input-container>
+    <label>Locatie</label>
+    <input [(ngModel)]="event.locatie" mdInput type="text" name="locatie" />
+  </md-input-container>
+  <button (click)="submit(event)" md-button>Add event</button>
+</form>
+<div *ngIf="!form.valid">
+  Error message.
+</div>

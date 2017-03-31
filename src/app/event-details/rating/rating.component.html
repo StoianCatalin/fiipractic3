@@ -1,0 +1,3 @@
+<div>
+  <md-icon *ngFor="let star of stars" [ngClass]="{'star-selected': star <= rating}" (click)="setRating(star)">star</md-icon>
+</div>

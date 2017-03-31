@@ -12,6 +12,7 @@ export class EventDetailsComponent implements OnInit {
 
   private id: Number;
   private event : Event;
+  private loading : boolean = false;
 
   constructor(private route: ActivatedRoute,
               private eventsService: EventsService) { }
@@ -19,8 +20,20 @@ export class EventDetailsComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe((params : Params) => {
       this.id = params['id'];
-      this.event = this.eventsService.getEventById(this.id);
+      this.eventsService.getEventById(this.id)
+        .subscribe((response) => {
+          this.event = response;
+          this.loading = true;
+        });
     });
+  }
+
+  updateRating(value) {
+    this.event.rating = value;
+    this.eventsService.updateEvent(this.id, this.event)
+      .subscribe((response) => {
+        console.log(response);
+      });
   }
 
 }

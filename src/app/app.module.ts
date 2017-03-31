@@ -14,11 +14,14 @@ import { EventDetailsComponent } from './event-details/event-details.component';
 
 import { EventsService } from './services/events.service';
 import { EventCardComponent } from './event-card/event-card.component';
+import { RatingComponent } from './event-details/rating/rating.component';
+import { AddEventComponent } from './add-event/add-event.component';
 
 const routes : Routes = [
   { 'path': 'events', 'component': EventsListComponent},
   { 'path': 'events/:id', 'component': EventDetailsComponent },
   { 'path': 'details', 'component': EventDetailsComponent},
+  { 'path': 'add-event', 'component': AddEventComponent},
   { 'path': '', 'redirectTo': 'events', pathMatch: 'full'}
 ];
 
@@ -27,7 +30,9 @@ const routes : Routes = [
     AppComponent,
     EventsListComponent,
     EventDetailsComponent,
-    EventCardComponent
+    EventCardComponent,
+    RatingComponent,
+    AddEventComponent
   ],
   imports: [
     BrowserModule,
