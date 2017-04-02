@@ -2,8 +2,8 @@ import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'fp-rating',
-  templateUrl: './rating.component.html',
-  styleUrls: ['./rating.component.scss']
+  templateUrl: 'rating.component.html',
+  styleUrls: ['rating.component.scss']
 })
 export class RatingComponent implements OnInit {
 

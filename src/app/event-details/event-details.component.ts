@@ -32,7 +32,7 @@ export class EventDetailsComponent implements OnInit {
     this.event.rating = value;
     this.eventsService.updateEvent(this.id, this.event)
       .subscribe((response) => {
-        
+
       });
   }
 
