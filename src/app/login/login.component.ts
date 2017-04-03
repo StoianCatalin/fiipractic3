@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../shared/services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'fp-login',
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
   name: string;
   password: string;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -19,7 +20,9 @@ export class LoginComponent implements OnInit {
   submit() {
     this.authService.login(this.name, this.password)
       .subscribe(({token}) => {
-        console.log(token);
+        this.name = '';
+        this.password = '';
+        this.router.navigate(['/add-event']);
       });
   }
 

@@ -15,12 +15,13 @@ import { AddEventComponent } from './add-event/add-event.component';
 import {SharedModule} from "./shared/shared.module";
 import { LoginComponent } from './login/login.component';
 import {AuthService} from "./shared/services/auth.service";
+import {AuthGuard} from "./shared/guards/auth.guard";
 
 const routes : Routes = [
   { 'path': 'events', 'component': EventsListComponent},
   { 'path': 'events/:id', 'component': EventDetailsComponent },
   { 'path': 'details', 'component': EventDetailsComponent},
-  { 'path': 'add-event', 'component': AddEventComponent},
+  { 'path': 'add-event', 'component': AddEventComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
   { 'path': '', 'redirectTo': 'events', pathMatch: 'full'}
 ];
@@ -44,7 +45,8 @@ const routes : Routes = [
   ],
   providers: [
     EventsService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

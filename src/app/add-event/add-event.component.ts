@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild, ElementRef} from '@angular/core';
 import { Event } from '../models/Event';
+import {EventsService} from "../services/events.service";
 
 @Component({
   selector: 'fp-add-event',
@@ -12,14 +13,17 @@ export class AddEventComponent implements OnInit {
 
   event : Event = new Event();
 
-  constructor() { }
+  constructor(private eventsService: EventsService) { }
 
   ngOnInit() {
   }
 
   submit(event) {
     if (this.form.valid)
-      console.log(event);
+      this.eventsService.addEvent(event)
+        .subscribe((response) => {
+          console.log(response);
+        });
   }
 
 }
